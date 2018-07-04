@@ -1,0 +1,31 @@
+
+
+
+
+.anav{color: white;}
+
+.anav:hover{ color: #0091ea;}
+
+body{ background-image: url('../img/fondo.jpg');}
+
+#div_carga{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    display: none;
+    z-index:3000;
+}
+
+#cargador{
+    position:absolute;
+    width: 10%;
+    height: 15%;
+    top:40%;
+    left: 45%;
+
+}

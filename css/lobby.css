@@ -1,0 +1,14 @@
+body {
+    background-image: url("../img/fondo.jpg");
+    background-color: #cccccc;
+}
+
+
+.headup{
+font-size: 25px;
+padding-bottom: 10px;
+    
+    -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+}

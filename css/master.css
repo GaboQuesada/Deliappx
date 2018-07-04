@@ -1,0 +1,12 @@
+
+
+.contenedorform{
+    width: 60%; background-color: white; padding-top: 15px; padding-bottom: 15px; border-radius: 0px 10px 49px 10px;
+    -moz-border-radius: 0px 10px 49px 10px;
+    -webkit-border-radius: 0px 10px 49px 10px;
+    border: 0px solid #000000; -webkit-box-shadow: 3px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 4px 5px 0px rgba(0,0,0,0.75); margin-bottom: 35px;  padding-left: 25px; padding-right: 25px;  
+
+
+}
