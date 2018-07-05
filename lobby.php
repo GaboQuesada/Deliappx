@@ -34,7 +34,7 @@ if (@$_GET["cerrar"]) {
                 <img src="img/logo.png" width="100" height="100">
             </div>
             <div class="col-sm align-self-center">
-                <h1><i class="fas fa-door-open"></i> Perfiles</h1>
+                <h1>Control Center </h1>
             </div>
             <div class="col-sm">
 
