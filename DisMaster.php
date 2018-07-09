@@ -25,8 +25,8 @@ if (@$_GET["cerrar"]) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <script src="lib/animation/js/animation.js"></script>
         <script src="lib/alertifyjs/js/alertify.js"></script>
-        <script src="controler/usuariosAdd.js"></script>
-        <script src="controler/usuariosgetall.js"></script>
+        <script src="controlerGeneral/usuariosAdd.js"></script>
+        <script src="controlerGeneral/usuariosgetall.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
         <!-- Custom styles for this template -->

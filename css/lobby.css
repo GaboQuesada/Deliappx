@@ -4,11 +4,16 @@ body {
 }
 
 
-.headup{
-font-size: 25px;
-padding-bottom: 10px;
+.cuadro{
+ 
+border-radius: 27px 27px 27px 27px;
+-moz-border-radius: 27px 27px 27px 27px;
+-webkit-border-radius: 27px 27px 27px 27px;
+border: 1px solid #545154;
+
+
+
+margin-bottom: 7px;
+
     
-    -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
 }

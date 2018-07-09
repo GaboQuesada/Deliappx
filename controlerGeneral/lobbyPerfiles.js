@@ -30,8 +30,8 @@ $(document).ready(function () {
                     success: function (respuesta) {
                         
                         
-                        $("#listadeperfiles").append('<li class="list-group-item"> \n\
-                <div class="row ">\n\
+                        $("#listadeperfiles").append('<li class=" list-group-item cuadro "> \n\
+                <div class="  row  ">\n\
                     <div class="col-sm">\n\
                     <img style="display: inline-block" src="sysimg/master.png"  width="45" height="45">\n\
                         &numsp;\n\
@@ -95,7 +95,7 @@ $(document).ready(function () {
            
             $.each(d, function (i, item) {
                             
-                  $("#listadeperfiles").append('<li class="list-group-item"> \n\
+                  $("#listadeperfiles").append('<li class="  list-group-item cuadro"> \n\
                 <div class="row ">\n\
                     <div class="col-sm">\n\
                     <img style="display: inline-block" src="sysimg/distribuidor.png"  width="45" height="45">\n\
@@ -160,7 +160,7 @@ $(document).ready(function () {
            
             $.each(d, function (i, item) {
                             
-                  $("#listadeperfiles").append('<li class="list-group-item"> \n\
+                  $("#listadeperfiles").append('<li class="  list-group-item cuadro"> \n\
                 <div class="row ">\n\
                     <div class="col-sm">\n\
                     <img style="display: inline-block" src="sysimg/agente.png"  width="45" height="45">\n\
