@@ -23,7 +23,7 @@ function login() {
     } else {
 
         $.ajax({
-            url: "model/usuarios_check.php",
+            url: "modelGeneral/usuarios_check.php",
             type: 'POST',
             dataType: "json",
             data: {us: $("#lnb").val(), ps: $("#lps").val()},
@@ -51,7 +51,7 @@ function login() {
                 } else {
 
                     $.ajax({
-                        url: "model/usuariosgetByPass.php",
+                        url: "modelGeneral/usuariosgetByPass.php",
                         type: 'POST',
                         dataType: "json",
                         data: {us: $("#lnb").val(), ps: $("#lps").val()},

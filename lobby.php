@@ -7,10 +7,7 @@ if (!empty($_SESSION['id'])) {
 } else {
     header("Location: index.php");
 }
-if (@$_GET["cerrar"]) {
-    session_destroy();
-    header("location: index.php");
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,9 +24,6 @@ if (@$_GET["cerrar"]) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <script src="lib/animation/js/animation.js"></script>
         <script src="lib/alertifyjs/js/alertify.js"></script>
-        <script src="controlerGeneral/usuariosAdd.js"></script>
-        <script src="controlerGeneral/usuariosgetall.js"></script>
-        <script src="controler/usuarioMastermodificar.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
         <!-- Custom styles for this template -->
@@ -62,9 +56,9 @@ if (@$_GET["cerrar"]) {
                       
                     </div>
                     <form class="form-inline my-2 my-lg-0">
-                        <img src="userimg/<?php echo $_SESSION["img"]; ?>"width="35" height="35" class="my-2 my-sm-0" alt="">
+                        <img src="imgUser/<?php echo $_SESSION["img"]; ?>"width="35" height="35" class="my-2 my-sm-0" alt="">
                         &numsp; <?php echo $_SESSION["nb"]; ?>
-                        <a class="nav-item nav-link " href="#"><i class="fas fa-sign-out-alt"></i></a>
+                        <a class="nav-item nav-link " href="modelGeneral/salir.php"><i class="fas fa-sign-out-alt"></i></a>
                         <a class="nav-item nav-link" href="#"><i class="fas fa-cog"></i></a>
                     </form>
                 </div>
@@ -91,7 +85,9 @@ if (@$_GET["cerrar"]) {
           
 
         </ul> 
+        <hr>
             <p id="idus"><?php echo $_SESSION["ce"]; ?></p>
+      
         </div>
         
         

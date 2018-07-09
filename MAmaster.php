@@ -6,10 +6,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 } else {
     header("Location: index.php");
 }
-if (@$_GET["cerrar"]) {
-    session_destroy();
-    header("location: index.php");
-}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -40,40 +37,8 @@ if (@$_GET["cerrar"]) {
     <body>
 
 
-
-        <nav class="navbar navbar-expand-lg  bg-dark fixed-top  ">
-
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">l</span>
-                </button>
-                <a class="navbar-brand" >
-                    <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-
-                </a>
-
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link anav "  href="lobby.php"><i class="fas fa-home"></i> Perfiles </a>
-                        <a class="nav-item nav-link anav" href="master.php"><i class="fas fa-user"></i> Usuarios</a>
-                        <a class="nav-item nav-link anav" href="distribuidores.php"><i class="fas fa-industry"></i> Distribuidores</a>
-                        <a class="nav-item nav-link anav" href="agentes.php"><i class="fas fa-address-card"></i> Agentes</a>
-                        <a class="nav-item nav-link anav" href="#"><i class="fas fa-heart"></i> Clientes</a>
-                        <a class="nav-item nav-link anav" href="#"><i class="fas fa-coins"></i> Pagos</a>
-                        <a class="nav-item nav-link anav" href="#"><i class="fas fa-chart-bar"></i> Estadisticas</a>
-                        <a class="nav-item nav-link anav" href="#"><i class="fas fa-calculator"></i> Precios</a>
-                    </div>
-                    <form class="form-inline my-2 my-lg-0">
-                        <img src="userimg/114840791.jpg" width="30" height="30" class="my-2 my-sm-0" alt="">
-
-                        <a class="nav-item nav-link " href="#"><i class="fas fa-sign-out-alt"></i></a>
-                        <a class="nav-item nav-link" href="#"><i class="fas fa-cog"></i></a>
-                    </form>
-                </div>
-            </div>
-
-        </nav>
+  <?php include './navMaster.php'; ?>
+      
 
 
         <div id="div_carga">
@@ -140,7 +105,7 @@ if (@$_GET["cerrar"]) {
                                 <br>
                                 <div class="row">
                                     <div class="col-sm">
-                                        <img id="newusimgp" src="sysimg/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
+                                        <img id="newusimgp" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
                                     </div>
                                     <div id="disusce"  class="col-sm row align-items-center">
 
@@ -257,7 +222,7 @@ if (@$_GET["cerrar"]) {
                                     <br>
                                     <div class="row">
                                         <div class="col-sm">
-                                            <img id="newusimgpm" src="sysimg/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
+                                            <img id="newusimgpm" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
                                         </div>
                                         <div id="disusce"  class="col-sm row align-items-center">
 
