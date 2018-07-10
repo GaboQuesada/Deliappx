@@ -29,6 +29,8 @@ if (!empty($_SESSION['id'])) {
         <link href="lib/alertifyjs/css/themes/default.css" rel="stylesheet">
         <link rel="stylesheet" href="css/navbar.css">
         <link rel="stylesheet" href="css/lobby.css">
+        
+        <script src="controlerGeneral/usuarioEdit.js"></script>
 
         <title>Bootstrap Example</title>
 
@@ -36,12 +38,15 @@ if (!empty($_SESSION['id'])) {
     </head>
 
     <body>
-
+        <a id="iraAncla" href="#ancla"></a>
+<div id="div_carga">
+            <img id="cargador"  src="img/gifcarga.gif"/>
+        </div>
         <nav class="navbar navbar-expand-lg  bg-dark fixed-top  ">
 
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">l</span>
+                    <span class="navbar-toggler-icon"><i class="fas fa-arrow-circle-down"></i></span>
                 </button>
                 <a class="navbar-brand" >
                     <img src="img/logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
@@ -51,8 +56,10 @@ if (!empty($_SESSION['id'])) {
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-nav mr-auto">
-
-                    </div>
+                <a class="nav-item nav-link anav "  href="lobby.php"><i class="fas fa-home"></i> Perfiles </a>
+ 
+            </div>
+                   
                     <form class="form-inline my-2 my-lg-0">
                         <img src="imgUser/<?php echo $_SESSION["img"]; ?>"width="35" height="35" class="my-2 my-sm-0" alt="">
                         &numsp; <?php echo $_SESSION["nb"]; ?>
@@ -75,7 +82,7 @@ if (!empty($_SESSION['id'])) {
 
             <br>
 
-            <p><strong>Perfil:</strong></p>
+            <p><strong>Modificar cuenta de usuario:</strong></p>
             <hr>
 
 
@@ -89,7 +96,7 @@ if (!empty($_SESSION['id'])) {
                 </div>
                 <div class="col-sm">
                     <div class="contenedorformperfil"> 
-                        <form id="frmNewUser " enctype="multipart/form-data" method="post">
+                        <form id="frmNewUser" name="frmNewUser" enctype="multipart/form-data" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nombre</label>
                                 <input type="text" class="form-control form-control-sm" name="NewUserName" id="NewUserName" aria-describedby="emailHelp" placeholder="">     
@@ -105,7 +112,7 @@ if (!empty($_SESSION['id'])) {
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Cedula</label>
-                                <input type="number" class="form-control form-control-sm" name="NewUserCe" id="NewUserCe" aria-describedby="emailHelp" disabled="true" value="<?php echo $_SESSION["ce"]; ?>" placeholder="sin guines ni espacios">     
+                                <input type="number" class="form-control form-control-sm" name="NewUserCe" id="NewUserCe" aria-describedby="emailHelp" value="<?php echo $_SESSION["ce"]; ?>" placeholder="sin guines ni espacios">     
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Correo</label>
@@ -125,7 +132,7 @@ if (!empty($_SESSION['id'])) {
                             <label for="exampleInputPassword1">Imagen de Usuario</label>
 
 
-                            <input type="file" onchange="readURL(this);"  name="NewUserIm" id="NewUserIm">
+                            <input type="file" onchange="readURLModificaU(this);"  name="NewUserIm" id="NewUserIm">
 
 
                             <br>
@@ -133,6 +140,7 @@ if (!empty($_SESSION['id'])) {
                                 <br>
                                 <div class="row">
                                     <div class="col-sm">
+                                        <input type="hidden" name="usidimg" id="usidimg" />
                                         <img id="newusimgp" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
                                     </div>
                                     <div id="disusce"  class="col-sm row align-items-center">
@@ -147,7 +155,7 @@ if (!empty($_SESSION['id'])) {
                             <div class="form-group">
 
                                 <br>
-                                <button type="submit" id="BtnNewUser" name="BtnNewUser" class="btn btn-primary btn-lg btn-block btn-sm">Agregar</button>
+                                <button type="submit" id="BtnNewUser" name="BtnNewUser" class="btn btn-primary btn-lg btn-block btn-sm">Modificar</button>
 
                             </div>
 

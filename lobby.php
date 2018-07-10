@@ -43,7 +43,7 @@ if (!empty($_SESSION['id'])) {
 
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">l</span>
+                    <span class="navbar-toggler-icon"><span class="navbar-toggler-icon"><i class="fas fa-arrow-circle-down"></i></span></span>
                 </button>
                 <a class="navbar-brand" >
                     <img src="img/logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
@@ -58,8 +58,9 @@ if (!empty($_SESSION['id'])) {
                     <form class="form-inline my-2 my-lg-0">
                         <img src="imgUser/<?php echo $_SESSION["img"]; ?>"width="35" height="35" class="my-2 my-sm-0" alt="">
                         &numsp; <?php echo $_SESSION["nb"]; ?>
+                        <a class="nav-item nav-link" href="Perfil.php"><i class="fas fa-cog"></i></a>
                         <a class="nav-item nav-link " href="modelGeneral/salir.php"><i class="fas fa-sign-out-alt"></i></a>
-                        <a class="nav-item nav-link" href="#"><i class="fas fa-cog"></i></a>
+                        
                     </form>
                 </div>
             </div>
