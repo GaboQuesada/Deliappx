@@ -46,7 +46,42 @@ function setdata() {
     });
 }
 
+function setdatap(ce) {
+    $.ajax({
+        url: "modelGeneral/usuariosgetByCe.php",
+        type: 'POST',
+        dataType: "json",
+        data: {ce: ce},
+        beforeSend: function () {
 
+        },
+        success: function (respuesta) {
+
+
+            var d = respuesta.resultados;
+
+            $.each(d, function (i, item) {
+
+                var imgsrc = "imgUser/" + d[i].us_im;
+
+
+                $("#newusimgpm").attr("src", imgsrc);
+                $("#NewUserNamem").val(d[i].us_no);
+                $("#NewUserCem").val(d[i].us_ce);
+                $("#NewUserAp1m").val(d[i].us_ap1);
+                $("#NewUserAp2m").val(d[i].us_ap2);
+                $("#NewUserCom").val(d[i].us_co);
+                $("#NewUserUsm").val(d[i].us_us);
+                $("#NewUserPam").val(d[i].us_ps);
+                $("#usidimgm").val(d[i].us_im);
+
+            });
+        },
+        error: function () {
+
+        }
+    });
+}
 
 
 
@@ -61,7 +96,7 @@ $(document).ready(function () {
     $("#frmNewUser").submit(function (e) {
         e.preventDefault();
 
-        alertify.confirm('Confirm Title', 'Confirm Message', function () {
+        alertify.confirm('Realemnet desea cambiar la informacion', 'El correo y la contraseña sin necesarios para poder iniciar session', function () {
 
 
             var formElement = document.getElementById("frmNewUser");
@@ -86,14 +121,73 @@ $(document).ready(function () {
                     data: parametros,
                     processData: false,
                     beforeSend: function () {
+                        $("#iraAncla")[0].click();
+                        $('#div_carga').show();
+
+                    },
+                    success: function () {
+
+                        setdata();
+                        $('#div_carga').hide();
+                        alertify.alert('Importante', 'Los cambios surgiran efecto en el sistema en el proximo inicio de sesion', function () {
+                            alertify.success('Ok');
+                        });
+
+                    },
+                    error: function (r) {
+
+                        alert("Error del servidor");
+                    }
+                });
+            }
+
+        }
+        , function () {
+            setdata();
+            alertify.error('No se ha modificado')
+        });
+
+
+    });
+
+
+    $("#frmNewUserm").submit(function (e) {
+        e.preventDefault();
+
+        alertify.confirm('Realemnet desea cambiar la informacion', 'El correo y la contraseña sin necesarios para poder iniciar session', function () {
+
+
+            var formElement = document.getElementById("frmNewUserm");
+            var parametros = new FormData(formElement);
+            var imgVal = $("#NewUserImm").val();
+            if (imgVal == '')
+            {
+                x = "si";
+                parametros.append("fileex", x);
+            }
+            parametros.append("fileex", x);
+
+            if ($("#NewUserNamem").val() == "" || $("#NewUserAp1m").val() == "" || $("#NewUserAp2m").val() == "" || $("#NewUserCom").val() == ""
+                    || $("#NewUserUsm").val() == "")
+            {
+                alert("Rellene todos los campos");
+            } else {
+                $.ajax({
+                    url: "modelMaster/usuarioUpdate.php",
+                    type: "POST",
+                    contentType: false,
+                    data: parametros,
+                    processData: false,
+                    beforeSend: function () {
 
                         $('#div_carga').show();
 
                     },
                     success: function () {
-$("#iraAncla")[0].click();
-                        setdata();
+                        $("#ummodel").click();
+                        $("#profile-tab").click();
                         $('#div_carga').hide();
+
                         alertify.alert('Importante', 'Los cambios surgiran efecto en el sistema en el proximo inicio de sesion', function () {
                             alertify.success('Ok');
                         });

@@ -22,9 +22,10 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <script src="lib/animation/js/animation.js"></script>
         <script src="lib/alertifyjs/js/alertify.js"></script>
-        <script src="controlerGeneral/usuariosAdd.js"></script>
-        <script src="controlerGeneral/usuariosgetall.js"></script>
-        <script src="controler/usuarioMastermodificar.js"></script>
+        <script src="controlerMaster/usuariosAdd.js"></script>
+        <script src="controlerMaster/usuariosgetall.js"></script>
+        <script src="controlerGeneral/usuarioEdit.js"></script>
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
         <!-- Custom styles for this template -->
@@ -38,13 +39,20 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
 
   <?php include './navMaster.php'; ?>
-      
+      <p id="ancla"></p> 
+        <a id="iraAncla" href="#ancla"></a>
 
 
         <div id="div_carga">
             <img id="cargador"  src="img/gifcarga.gif"/>
         </div>
 
+        
+        
+        
+        
+        
+        
         <div class="container" style="margin-top: 58px;">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -60,7 +68,16 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
             <div class="tab-content" id="myTabContent" style="margin: 2px">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <br>
-                    <div class="container contenedorform" >
+                    
+                    <div class="row">
+                <div class="col-sm align-self-center">
+                    <div class="row justify-content-center">
+                        <p><i class="fas fa-edit" style="font-size: 98px;"></i></p>
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                   <div class="container contenedorform" >
                         <form id="frmNewUser" enctype="multipart/form-data" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nombre</label>
@@ -97,7 +114,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                             <label for="exampleInputPassword1">Imagen de Usuario</label>
 
 
-                            <input type="file" onchange="readURL(this);"  name="NewUserIm" id="NewUserIm">
+                            <input type="file" onchange="readURLModificaU(this);"  name="NewUserIm" id="NewUserIm">
 
 
                             <br>
@@ -105,7 +122,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 <br>
                                 <div class="row">
                                     <div class="col-sm">
-                                        <img id="newusimgp" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
+                                        <img id="newusimgp" name="newusimgp" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
                                     </div>
                                     <div id="disusce"  class="col-sm row align-items-center">
 
@@ -127,9 +144,15 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                     </div>
 
                 </div>
+
+            </div>
+                    
+                    
+
+                </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-                    <div style="padding-top: 25px; padding-left: 20px; padding-right: 20px">
+                    <div style="padding-top: 25px; padding-left: 20px; padding-right: 20px; background-color:white; margin-top: 10px; border-color: slategrey; border-style: solid; border-width:1px;">
                         <table class="table table-hover ">
                             <thead class="thead-dark">
                                 <tr>
@@ -175,8 +198,8 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                     <div class="modal-body  ">
 
                         <div class="container ">
-                            <form id="frmNewUserm" enctype="multipart/form-data" method="post">
-                                <input type="hidden" name="usimgm" id="usimgm"/> 
+                            <form id="frmNewUserm" name="frmNewUserm" enctype="multipart/form-data" method="post">
+                              
 
                                 
                                 <div class="form-group">
@@ -214,7 +237,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 <label for="exampleInputPassword1">Imagen de Usuario</label>
 
 
-                                <input type="file" onchange="readURL(this);"  name="NewUserImm" id="NewUserImm">
+                                <input type="file" onchange=" readURLModificaU(this);"  name="NewUserImm" id="NewUserImm">
 
 
                                 <br>
@@ -223,6 +246,8 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <img id="newusimgpm" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
+                                            <input type="hidden" id="usidimgm" name="usidimgm" />
+                                                   
                                         </div>
                                         <div id="disusce"  class="col-sm row align-items-center">
 

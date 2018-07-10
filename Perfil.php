@@ -38,6 +38,7 @@ if (!empty($_SESSION['id'])) {
     </head>
 
     <body>
+        <p id="ancla"></p> 
         <a id="iraAncla" href="#ancla"></a>
 <div id="div_carga">
             <img id="cargador"  src="img/gifcarga.gif"/>
@@ -77,8 +78,7 @@ if (!empty($_SESSION['id'])) {
             <input type="hidden" id="idusp" name="idusp" value="<?php echo $_SESSION["id"]; ?>" /> 
             <br>
 
-            <br>
-            <br>
+            
 
             <br>
 

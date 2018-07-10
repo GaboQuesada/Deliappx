@@ -5,7 +5,7 @@ $(document).ready(function (){
     $("#profile-tab").click(function () {
    
     $.ajax({
-        url: "model/usuariosgetAll.php",
+        url: "modelMaster/usuariosgetAll.php",
         type: 'POST',
         dataType: "json",
         beforeSend: function () {
@@ -26,9 +26,9 @@ $(document).ready(function (){
 <td>" + d[i].us_co + "</td>\n\
 <td>" + d[i].us_us + "</td>\n\
 <td>" + d[i].us_ps + "</td>\n\
-<td><img src='userimg/" + d[i].us_im + "' width='50' height='50'></td>\n\
+<td><img class='rounded-circle' src='imgUser/" + d[i].us_im + "' width='50' height='50'></td>\n\
 <td>" + d[i].us_pi + "</td>\n\
-<td><button type='button' class='btn btn-warning'>Editar</button></td>\n\</tr>");
+<td><button type='button' onclick='setdatap("+d[i].us_ce+")' class='btn btn-warning' data-toggle='modal' data-target='#exampleModal'><i class='fas fa-edit'></i> Editar</button></td>\n\</tr>");
             });
         },
         error: function () {
