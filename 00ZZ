@@ -1,0 +1,16 @@
+
+
+
+
+SELECT COUNT(`PER_CODIGO`) FROM rhy_personas
+WHERE `PER_CODIGO` LIKE CONCAT('%', buscar , '%') 
+OR `PER_NOMBRE` LIKE CONCAT('%', buscar , '%') 
+OR `PER_P_APELLIDO` LIKE CONCAT('%', buscar , '%')
+
+
+
+SELECT rhy_instructor.PER_CODIGO, rhy_instructor.INS_FECHAINGRESO, rhy_instructor.INS_ESTADO,
+rhy_instructor.ACA_CODIGO,rhy_personas.PER_NOMBRE, rhy_personas.PER_P_APELLIDO, rhy_personas.PER_S_APELLIDO 
+FROM rhy_instructor 
+INNER JOIN rhy_personas ON rhy_personas.PER_CODIGO = rhy_instructor.PER_CODIGO 
+WHERE rhy_personas.PER_NOMBRE LIKE CONCAT('%', buscar , '%')

@@ -45,7 +45,6 @@ function setdata() {
         }
     });
 }
-
 function setdatap(ce) {
     $.ajax({
         url: "modelGeneral/usuariosgetByCe.php",
@@ -68,6 +67,7 @@ function setdatap(ce) {
                 $("#newusimgpm").attr("src", imgsrc);
                 $("#NewUserNamem").val(d[i].us_no);
                 $("#NewUserCem").val(d[i].us_ce);
+                $("#NewUserCem2").val(d[i].us_ce);
                 $("#NewUserAp1m").val(d[i].us_ap1);
                 $("#NewUserAp2m").val(d[i].us_ap2);
                 $("#NewUserCom").val(d[i].us_co);
@@ -82,11 +82,6 @@ function setdatap(ce) {
         }
     });
 }
-
-
-
-
-
 
 $(document).ready(function () {
 
@@ -157,8 +152,8 @@ $(document).ready(function () {
         alertify.confirm('Realemnet desea cambiar la informacion', 'El correo y la contraseña sin necesarios para poder iniciar session', function () {
 
 
-            var formElement = document.getElementById("frmNewUserm");
-            var parametros = new FormData(formElement);
+            var formElement2 = document.getElementById("frmNewUserm");
+            var parametros = new FormData(formElement2);
             var imgVal = $("#NewUserImm").val();
             if (imgVal == '')
             {

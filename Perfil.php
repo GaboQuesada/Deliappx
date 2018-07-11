@@ -112,7 +112,8 @@ if (!empty($_SESSION['id'])) {
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Cedula</label>
-                                <input type="number" class="form-control form-control-sm" name="NewUserCe" id="NewUserCe" aria-describedby="emailHelp" value="<?php echo $_SESSION["ce"]; ?>" placeholder="sin guines ni espacios">     
+                                <input type="hidden" class="form-control form-control-sm"  name="NewUserCe" id="NewUserCe" aria-describedby="emailHelp" value="<?php echo $_SESSION["ce"]; ?>" placeholder="sin guines ni espacios"> 
+                                <input type="number" class="form-control form-control-sm" disabled="true"  name="NewUserCe2" id="NewUserCe2" aria-describedby="emailHelp" value="<?php echo $_SESSION["ce"]; ?>" placeholder="sin guines ni espacios">  
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Correo</label>

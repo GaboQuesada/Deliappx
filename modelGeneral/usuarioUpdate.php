@@ -9,9 +9,7 @@ $conn = $conexion->conect();
 try {
     
     
- $sourcePath = $_FILES['NewUserIm']['tmp_name']; // Storing source path of the file in a variable
-        $targetPath = "../imgUser/" . $_FILES['NewUserIm']['name']; // Target path where file is to be stored
-        move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
+ 
     
     $stmt = $conn->prepare("CALL PerfilUpdate(:no, :ap1, :ap2, :ce , :co , :us, :ps , :im)");
 
@@ -24,7 +22,9 @@ try {
 
         $stmt->bindParam(':im', $_POST["usidimg"]);
     } else {
-       
+       $sourcePath = $_FILES['NewUserIm']['tmp_name']; // Storing source path of the file in a variable
+        $targetPath = "../imgUser/" . $_FILES['NewUserIm']['name']; // Target path where file is to be stored
+        move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
         $stmt->bindParam(':im', $_FILES["NewUserIm"]["name"]);
     }
 

@@ -6,7 +6,6 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 } else {
     header("Location: index.php");
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,8 +37,8 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
     <body>
 
 
-  <?php include './navMaster.php'; ?>
-      <p id="ancla"></p> 
+        <?php include './navMaster.php'; ?>
+        <p id="ancla"></p> 
         <a id="iraAncla" href="#ancla"></a>
 
 
@@ -47,12 +46,12 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
             <img id="cargador"  src="img/gifcarga.gif"/>
         </div>
 
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         <div class="container" style="margin-top: 58px;">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -68,86 +67,86 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
             <div class="tab-content" id="myTabContent" style="margin: 2px">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <br>
-                    
+
                     <div class="row">
-                <div class="col-sm align-self-center">
-                    <div class="row justify-content-center">
-                        <p><i class="fas fa-edit" style="font-size: 98px;"></i></p>
+                        <div class="col-sm align-self-center">
+                            <div class="row justify-content-center">
+                                <p><i class="fas fa-edit" style="font-size: 98px;"></i></p>
+                            </div>
+
+                        </div>
+                        <div class="col-sm">
+                            <div class="container contenedorform" >
+                                <form id="frmNewUser" enctype="multipart/form-data" method="post">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Nombre</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserName" id="NewUserName" aria-describedby="emailHelp" placeholder="">     
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Primer Apellido</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserAp1" id="NewUserAp1" aria-describedby="emailHelp" placeholder="">     
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Segundo Apellido</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserAp2" id="NewUserAp2" aria-describedby="emailHelp" placeholder="">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Cedula</label>
+                                        <input type="number" class="form-control form-control-sm" name="NewUserCe" id="NewUserCe" aria-describedby="emailHelp" placeholder="sin guines ni espacios">     
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Correo</label>
+                                        <input type="email" class="form-control form-control-sm" name="NewUserCo" id="NewUserCo" aria-describedby="emailHelp" placeholder="">
+                                        <small id="emailHelp" class="form-text text-muted">a este se enviara informacion importante.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Usuario</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserUs" id="NewUserUs" aria-describedby="emailHelp" placeholder="">
+                                        <small id="emailHelp" class="form-text text-muted">Con este ingresara al sistema.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control form-control-sm" name="NewUserPa" id="NewUserPa" placeholder="Password">
+
+                                    </div>
+                                    <label for="exampleInputPassword1">Imagen de Usuario</label>
+
+
+                                    <input type="file" onchange="readURLModificaU(this);"  name="NewUserIm" id="NewUserIm">
+
+
+                                    <br>
+                                    <div class="container" id="showuserdiinfo">
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <img id="newusimgp" name="newusimgp" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
+                                            </div>
+                                            <div id="disusce"  class="col-sm row align-items-center">
+
+                                            </div>
+                                            <div class="col-sm">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+
+                                        <br>
+                                        <button type="submit" id="BtnNewUser" name="BtnNewUser" class="btn btn-primary btn-lg btn-block btn-sm">Agregar</button>
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                </div>
-                <div class="col-sm">
-                   <div class="container contenedorform" >
-                        <form id="frmNewUser" enctype="multipart/form-data" method="post">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" class="form-control form-control-sm" name="NewUserName" id="NewUserName" aria-describedby="emailHelp" placeholder="">     
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Primer Apellido</label>
-                                <input type="text" class="form-control form-control-sm" name="NewUserAp1" id="NewUserAp1" aria-describedby="emailHelp" placeholder="">     
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Segundo Apellido</label>
-                                <input type="text" class="form-control form-control-sm" name="NewUserAp2" id="NewUserAp2" aria-describedby="emailHelp" placeholder="">
 
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Cedula</label>
-                                <input type="number" class="form-control form-control-sm" name="NewUserCe" id="NewUserCe" aria-describedby="emailHelp" placeholder="sin guines ni espacios">     
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Correo</label>
-                                <input type="email" class="form-control form-control-sm" name="NewUserCo" id="NewUserCo" aria-describedby="emailHelp" placeholder="">
-                                <small id="emailHelp" class="form-text text-muted">a este se enviara informacion importante.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Usuario</label>
-                                <input type="text" class="form-control form-control-sm" name="NewUserUs" id="NewUserUs" aria-describedby="emailHelp" placeholder="">
-                                <small id="emailHelp" class="form-text text-muted">Con este ingresara al sistema.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control form-control-sm" name="NewUserPa" id="NewUserPa" placeholder="Password">
-
-                            </div>
-                            <label for="exampleInputPassword1">Imagen de Usuario</label>
-
-
-                            <input type="file" onchange="readURLModificaU(this);"  name="NewUserIm" id="NewUserIm">
-
-
-                            <br>
-                            <div class="container" id="showuserdiinfo">
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <img id="newusimgp" name="newusimgp" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
-                                    </div>
-                                    <div id="disusce"  class="col-sm row align-items-center">
-
-                                    </div>
-                                    <div class="col-sm">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="form-group">
-
-                                <br>
-                                <button type="submit" id="BtnNewUser" name="BtnNewUser" class="btn btn-primary btn-lg btn-block btn-sm">Agregar</button>
-
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
-
-            </div>
-                    
-                    
 
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -175,7 +174,54 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
 
                 </div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div style="height: 70px; width: 100%; margin-top: 20px;">
+                                    <button type="button" class="btn btn-dark btn-sm"><i class="fas fa-pen-square"></i> Escribir Mensage a todos </button>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Buscar usuario" aria-label="Username" aria-describedby="basic-addon1">
+
+                                        </div>
+                                        
+
+                                        
+                                        <div class="searchbox" style="position: absolute; left: 55px; top: 130px; z-index: 3950; width: 80%;">
+                                            <ul class="list-group list-group-flush" >
+                                                <li class="list-group-item">Cras justo odio</li>
+                                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                                                <li class="list-group-item">Morbi leo risus</li>
+                                                <li class="list-group-item">Porta ac consectetur ac</li>
+                                                <li class="list-group-item">Vestibulum at eros</li>
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+                                    <div style=" z-index: 3902;">
+                                        <p>mensajes enviados</p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">Cras justo odio</li>
+                                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                                            <li class="list-group-item">Morbi leo risus</li>
+                                            <li class="list-group-item">Porta ac consectetur ac</li>
+                                            <li class="list-group-item">Vestibulum at eros</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                One of three columns
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -199,9 +245,9 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
                         <div class="container ">
                             <form id="frmNewUserm" name="frmNewUserm" enctype="multipart/form-data" method="post">
-                              
 
-                                
+
+
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nombre</label>
                                     <input type="text" class="form-control form-control-sm" name="NewUserNamem" id="NewUserNamem" aria-describedby="emailHelp" placeholder="">     
@@ -217,7 +263,8 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Cedula</label>
-                                    <input type="number" class="form-control form-control-sm" disabled="true" name="NewUserCem" id="NewUserCem" aria-describedby="emailHelp" placeholder="sin guines ni espacios">     
+                                    <input type="hidden" class="form-control form-control-sm" name="NewUserCem" id="NewUserCem" aria-describedby="emailHelp">  
+                                    <input type="number" class="form-control form-control-sm" disabled="true" name="NewUserCem2" id="NewUserCem2" aria-describedby="emailHelp" >  
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Correo</label>
@@ -247,7 +294,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                         <div class="col-sm">
                                             <img id="newusimgpm" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
                                             <input type="hidden" id="usidimgm" name="usidimgm" />
-                                                   
+
                                         </div>
                                         <div id="disusce"  class="col-sm row align-items-center">
 
@@ -261,16 +308,16 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 <div class="form-group">
 
                                     <br>
-                                   
+
 
                                 </div>
 
-                            
+
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                         <button type="submit" id="BtnNewUserm" name="BtnNewUserm" class="btn btn-primary  btn-sm">Modificar</button>
+                        <button type="submit" id="BtnNewUserm" name="BtnNewUserm" class="btn btn-primary  btn-sm">Modificar</button>
                         <button type="button" id="ummodel" class="btn btn-secondary btn-sm" data-dismiss="modal">Volver sin cambios</button>
 
                     </div>
