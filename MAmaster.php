@@ -24,6 +24,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <script src="controlerMaster/usuariosAdd.js"></script>
         <script src="controlerMaster/usuariosgetall.js"></script>
         <script src="controlerGeneral/usuarioEdit.js"></script>
+        <script src="controlerMaster/usuarioLikemsg.js"></script>
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
@@ -187,32 +188,48 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="Buscar usuario" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" class="form-control" id="userSearch" name="userSearch" placeholder="Buscar usuario" aria-label="Username" aria-describedby="basic-addon1">
 
                                         </div>
-                                        
 
-                                        
+
+
                                         <div class="searchbox" style="position: absolute; left: 55px; top: 130px; z-index: 3950; width: 80%;">
-                                            <ul class="list-group list-group-flush" >
-                                                <li class="list-group-item">Cras justo odio</li>
-                                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                                <li class="list-group-item">Morbi leo risus</li>
-                                                <li class="list-group-item">Porta ac consectetur ac</li>
-                                                <li class="list-group-item">Vestibulum at eros</li>
+                                            <ul id="userSearchre" class=" cuadroresult list-group list-group-flush cuadroresult" >
+
                                             </ul>
                                         </div>
-                                        
+
                                     </div>
+
+
                                     <div style=" z-index: 3902;">
                                         <p>mensajes enviados</p>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Cras justo odio</li>
-                                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                                            <li class="list-group-item">Morbi leo risus</li>
-                                            <li class="list-group-item">Porta ac consectetur ac</li>
-                                            <li class="list-group-item">Vestibulum at eros</li>
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home" aria-selected="true">Individuales</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile" aria-selected="false">Colectivos</a>
+                                            </li>
+                                            <li class="nav-item">
+
+                                            </li>
                                         </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab">
+                                                <ul class="list-group list-group-flush ">
+                                                    <li class="list-group-item">Cras justo odio</li>
+                                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                                    <li class="list-group-item">Morbi leo risus</li>
+                                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                                    <li class="list-group-item">Vestibulum at eros</li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">...</div>
+
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

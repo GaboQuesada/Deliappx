@@ -29,3 +29,13 @@
     
     
 }
+
+.cuadroresult{
+    
+    border-style: solid;
+    border-color: #0091ea;
+    border-width:2px;
+    padding: 2px;
+    background-color: #252525;
+    
+}
