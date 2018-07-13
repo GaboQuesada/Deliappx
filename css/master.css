@@ -39,3 +39,15 @@
     background-color: #252525;
     
 }
+
+#MSGaLL{
+    
+    
+    max-height: 400px;
+    overflow-y: scroll;
+    border-style: solid;
+    border-color: #252525;
+    border-width: 1px;
+    
+    
+}

@@ -35,7 +35,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
                 <img src="imgUser/<?php echo $_SESSION["img"]; ?>"width="30" height="30" class="my-2 my-sm-0" alt="">
                  <a class="nav-item nav-link" href="Perfil.php"><i class="fas fa-cog"></i></a>
-                 <a class="nav-item nav-link" href="Perfil.php"><i class="fas fa-envelope"></i></a>
+                 <a class="nav-item nav-link" href="Perfil.php"><i class="fas fa-envelope"></i><span class="badge badge-primary">0</span></a>
                 <a class="nav-item nav-link " href="modelGeneral/salir.php"><i class="fas fa-sign-out-alt"></i></a>
                
             </form>

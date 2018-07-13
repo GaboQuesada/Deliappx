@@ -15,6 +15,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/master.css">
+        <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="lib/animation/css/animation.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -37,8 +38,6 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
     </head>
     <body>
 
-
-        <?php include './navMaster.php'; ?>
         <p id="ancla"></p> 
         <a id="iraAncla" href="#ancla"></a>
 
@@ -46,11 +45,13 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <div id="div_carga">
             <img id="cargador"  src="img/gifcarga.gif"/>
         </div>
+        <input type="hidden" id="usid" value="<?php echo $_SESSION['id'] ?>"/>
+        <input type="hidden" id="usno" value="<?php echo $_SESSION['nb'] ?>"/>
+        <input type="hidden" id="usim" value="<?php echo $_SESSION['img'] ?>"/>
+        <input type="hidden" id="usce" value="<?php echo $_SESSION['ce'] ?>"/>
+        <input type="hidden" id="ge"/>
 
-
-
-
-
+        <?php include './navMaster.php'; ?>
 
 
         <div class="container" style="margin-top: 58px;">
@@ -78,6 +79,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                         </div>
                         <div class="col-sm">
                             <div class="container contenedorform" >
+    
                                 <form id="frmNewUser" enctype="multipart/form-data" method="post">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Nombre</label>
@@ -194,7 +196,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
 
 
-                                        <div class="searchbox" style="position: absolute; left: 55px; top: 130px; z-index: 3950; width: 80%;">
+                                        <div class="searchbox msgshowbox" style="position: absolute; left: 55px; top: 130px; z-index: 3950; width: 80%;">
                                             <ul id="userSearchre" class=" cuadroresult list-group list-group-flush cuadroresult" >
 
                                             </ul>
@@ -205,7 +207,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
                                     <div style=" z-index: 3902;">
                                         <p>mensajes enviados</p>
-                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <ul class="nav nav-tabs"  id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home" aria-selected="true">Individuales</a>
                                             </li>
@@ -215,15 +217,13 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                             <li class="nav-item">
 
                                             </li>
-                                        </ul>
+
+
+                                        </ul> 
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab">
-                                                <ul class="list-group list-group-flush ">
-                                                    <li class="list-group-item">Cras justo odio</li>
-                                                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                                                    <li class="list-group-item">Morbi leo risus</li>
-                                                    <li class="list-group-item">Porta ac consectetur ac</li>
-                                                    <li class="list-group-item">Vestibulum at eros</li>
+                                                <ul id="MSGaLL" class="list-group list-group-flush ">
+
                                                 </ul>
                                             </div>
                                             <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">...</div>
@@ -234,113 +234,167 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 </div>
                             </div>
                             <div class="col-sm">
-                                One of three columns
+                                <div class="boxshowmens">
+
+                                    <div><div class="headboxmdg">PARA:</div>  &numsp;<img id="spmim" src="imgSys/user.png"width="30" height="30" style="display: inline-block;" > &numsp; <p id="spmnb" style="display: inline-block;"></p></div>
+                                    <div><div class="headboxmdg">DESDE:</div>  &numsp;<img  src="imgSys/master.png" width="30" height="30" style="display: inline-block;" > &numsp; <p style="display: inline-block;">Master</p></div>
+                                   
+                                    <div class="form-group">
+                                        <label for="e">Titulo / Asunto:</label>
+                                        <input type="text" class="form-control" id="swtitulo" >
+                                        <div class="form-group">
+                                            <label for="ex">Cuerpo del mensaje</label>
+                                            <textarea class="form-control" id="swcuerpo" rows="3"></textarea>
+                                        </div>
+                                        <br>
+                                        Datos:
+                                        <hr>
+                                        <div id="fcv">Fecha de envio:</div>
+                                        <div id="hrv">Hora de envio:</div>
+                                        <div>Estado:</div>
+                                        <div>Fecha de visualización:</div>
+                                        
+
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
+
+
+            <!-- Editar Usuarios MOdal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modificar Usuario</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body  ">
+
+                            <div class="container ">
+                                <form id="frmNewUserm" name="frmNewUserm" enctype="multipart/form-data" method="post">
 
 
 
-        <!-- Editar Usuarios MOdal -->
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Nombre</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserNamem" id="NewUserNamem" aria-describedby="emailHelp" placeholder="">     
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Primer Apellido</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserAp1m" id="NewUserAp1m" aria-describedby="emailHelp" placeholder="">     
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Segundo Apellido</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserAp2m" id="NewUserAp2m" aria-describedby="emailHelp" placeholder="">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Cedula</label>
+                                        <input type="hidden" class="form-control form-control-sm" name="NewUserCem" id="NewUserCem" aria-describedby="emailHelp">  
+                                        <input type="number" class="form-control form-control-sm" disabled="true" name="NewUserCem2" id="NewUserCem2" aria-describedby="emailHelp" >  
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Correo</label>
+                                        <input type="email" class="form-control form-control-sm" name="NewUserCom" id="NewUserCom" aria-describedby="emailHelp" placeholder="">
+                                        <small id="emailHelp" class="form-text text-muted">a este se enviara informacion importante.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Usuario</label>
+                                        <input type="text" class="form-control form-control-sm" name="NewUserUsm" id="NewUserUsm" aria-describedby="emailHelp" placeholder="">
+                                        <small id="emailHelp" class="form-text text-muted">Con este ingresara al sistema.</small>
+                                    </div>
+                                    <div class="form-group" >
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control form-control-sm" name="NewUserPam" id="NewUserPam" placeholder="Password">
+
+                                    </div>
+                                    <label for="exampleInputPassword1">Imagen de Usuario</label>
 
 
-        <!-- Modal -->
-        <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog " role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modificar Usuario</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body  ">
-
-                        <div class="container ">
-                            <form id="frmNewUserm" name="frmNewUserm" enctype="multipart/form-data" method="post">
+                                    <input type="file" onchange=" readURLModificaU(this);"  name="NewUserImm" id="NewUserImm">
 
 
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Nombre</label>
-                                    <input type="text" class="form-control form-control-sm" name="NewUserNamem" id="NewUserNamem" aria-describedby="emailHelp" placeholder="">     
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Primer Apellido</label>
-                                    <input type="text" class="form-control form-control-sm" name="NewUserAp1m" id="NewUserAp1m" aria-describedby="emailHelp" placeholder="">     
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Segundo Apellido</label>
-                                    <input type="text" class="form-control form-control-sm" name="NewUserAp2m" id="NewUserAp2m" aria-describedby="emailHelp" placeholder="">
-
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Cedula</label>
-                                    <input type="hidden" class="form-control form-control-sm" name="NewUserCem" id="NewUserCem" aria-describedby="emailHelp">  
-                                    <input type="number" class="form-control form-control-sm" disabled="true" name="NewUserCem2" id="NewUserCem2" aria-describedby="emailHelp" >  
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Correo</label>
-                                    <input type="email" class="form-control form-control-sm" name="NewUserCom" id="NewUserCom" aria-describedby="emailHelp" placeholder="">
-                                    <small id="emailHelp" class="form-text text-muted">a este se enviara informacion importante.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Usuario</label>
-                                    <input type="text" class="form-control form-control-sm" name="NewUserUsm" id="NewUserUsm" aria-describedby="emailHelp" placeholder="">
-                                    <small id="emailHelp" class="form-text text-muted">Con este ingresara al sistema.</small>
-                                </div>
-                                <div class="form-group" >
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control form-control-sm" name="NewUserPam" id="NewUserPam" placeholder="Password">
-
-                                </div>
-                                <label for="exampleInputPassword1">Imagen de Usuario</label>
-
-
-                                <input type="file" onchange=" readURLModificaU(this);"  name="NewUserImm" id="NewUserImm">
-
-
-                                <br>
-                                <div class="container" id="showuserdiinfo">
                                     <br>
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <img id="newusimgpm" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
-                                            <input type="hidden" id="usidimgm" name="usidimgm" />
+                                    <div class="container" id="showuserdiinfo">
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <img id="newusimgpm" src="imgSys/user.png" width="85" height="85" alt="..." class="rounded border border-primary">
+                                                <input type="hidden" id="usidimgm" name="usidimgm" />
 
-                                        </div>
-                                        <div id="disusce"  class="col-sm row align-items-center">
+                                            </div>
+                                            <div id="disusce"  class="col-sm row align-items-center">
 
-                                        </div>
-                                        <div class="col-sm">
+                                            </div>
+                                            <div class="col-sm">
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <br>
-                                <div class="form-group">
-
                                     <br>
+                                    <div class="form-group">
+
+                                        <br>
 
 
-                                </div>
+                                    </div>
 
+
+                            </div>
 
                         </div>
+                        <div class="modal-footer">
+                            <button type="submit" id="BtnNewUserm" name="BtnNewUserm" class="btn btn-primary  btn-sm">Modificar</button>
+                            <button type="button" id="ummodel" class="btn btn-secondary btn-sm" data-dismiss="modal">Volver sin cambios</button>
 
+                        </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" id="BtnNewUserm" name="BtnNewUserm" class="btn btn-primary  btn-sm">Modificar</button>
-                        <button type="button" id="ummodel" class="btn btn-secondary btn-sm" data-dismiss="modal">Volver sin cambios</button>
-
-                    </div>
-                    </form>
                 </div>
             </div>
-        </div>
+
+
+            <!-- modal mensajes-->
+            <div class="modal fade" id="Modalmsg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <center>  <h5 class="modal-title" id="exampleModalLabel">Nuevo mensaje</h5></center>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div><div class="headboxmdg">PARA:</div>  &numsp;<img id="pmim" src=" "width="30" height="30" style="display: inline-block;" > &numsp; <p id="pmnb" style="display: inline-block;"></p></div>
+                            <div><div class="headboxmdg">DESDE:</div>  &numsp;<img  src="imgSys/master.png" width="30" height="30" style="display: inline-block;" > &numsp; <p style="display: inline-block;">Master</p></div>
+                            <div><div class="headboxmdg">DE:</div>  &numsp;<img id="rmim" src="imgSys/master.png" width="30" height="30" style="display: inline-block;" > &numsp; <p id="rmnb" style="display: inline-block;">Master</p></div>
+                            <div class="form-group">
+                                <label for="e">Titulo / Asunto:</label>
+                                <input type="text" class="form-control" id="mstitulo" >
+                                <div class="form-group">
+                                    <label for="ex">Cuerpo del mensaje</label>
+                                    <textarea class="form-control" id="mscuerpo" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="msgmodalclose" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                            <button type="button" id="msgenvBtn" class="btn btn-primary btn-sm">Enviar Mensaje</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </body>
 </html>
