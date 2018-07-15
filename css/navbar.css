@@ -29,3 +29,29 @@ body{ background-image: url('../img/fondo.jpg');}
     left: 45%;
 
 }
+
+
+.showmsgboxnav{
+    background-color: white;
+    z-index: 4500;
+    display: inline-block;
+max-height: 550px;
+overflow-x: auto;
+    -webkit-box-shadow: -1px 10px 11px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 11px 3px rgba(0,0,0,0.75);
+    box-shadow: -1px 10px 11px 3px rgba(0,0,0,0.75);
+
+}
+
+#msgus{
+
+    font-size: 10px;
+}
+
+.msga{}
+
+.msga:hover{
+
+    background-color: #0091ea;
+    cursor: pointer;
+}

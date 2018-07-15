@@ -1,19 +1,20 @@
 <?php
 
+session_start();
 include '../bd/connect.php';
 $conexion = new Connect();
 $conn = $conexion->conect();
 
 try {
-    $stmt = $conn->prepare("CALL MENSAGECASTINGnotiCount(:id)");
-    $stmt->bindParam(':id' , $_POST['id']);
-
+    $stmt = $conn->prepare("CALL MENSAGECASTINGestado(:id)");
+    $stmt->bindParam(':id', $_POST["id"]);
+ 
     $stmt->execute();
-    $can = $stmt->fetchColumn();
     $respuesta['estado'] = "1";
-    $respuesta['mensajelog'] = "su";
+    $respuesta['mensajelog'] = "Consulta Exitosa (getAll)";
     $respuesta['mensaje'] = "Consulta Exitosa.";
-    $respuesta['resultados'] = $can;
+    $respuesta['resultados'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     print json_encode($respuesta);
 } catch (PDOException $e) {
 
@@ -22,3 +23,4 @@ try {
     $respuesta['mensaje'] = "Ha ocurrido un error.";
     print json_encode($respuesta);
 }
+?>

@@ -81,18 +81,18 @@ function sendmsg(pfr) {
 
 }
 
-function settoshowbox(img,  nb , ti , cp , fe , he )
+function settoshowbox(img, nb, ti, cp, fe, he)
 {
-    
 
-     var imgp = "imgUser/" + img;
+
+    var imgp = "imgUser/" + img;
     $("#spmim").attr("src", imgp);
     $("#spmnb").text(nb);
     $("#swtitulo").val(ti);
     $("#swcuerpo").val(cp);
-    $("#fcv").html("<strong>Fecha de envio:</strong> "+fe);
-    $("#hrv").html("<strong>Hora de envio:</strong> "+he);
-    
+    $("#fcv").html("<strong>Fecha de envio:</strong> " + fe);
+    $("#hrv").html("<strong>Hora de envio:</strong> " + he);
+
 }
 
 function getAll() {
@@ -110,15 +110,16 @@ function getAll() {
             $.each(d, function (i, item) {
 
                 var str = d[i].mc_ti;
- 
+
                 var n = str.substring(0, 20);
-                
+
                 var img = d[i].us_im;
-                var nb =  d[i].us_no + '  ' + d[i].us_ap1 + '  ' + d[i].us_ap2;
-                var ti =  d[i].mc_ti;
-                var cp =  d[i].mc_mg;
-                var fe =  d[i].mc_fc;
-                var he =  d[i].mc_ho;
+                var nb = d[i].us_no + '  ' + d[i].us_ap1 + '  ' + d[i].us_ap2;
+                var ti = d[i].mc_ti;
+                var cp = d[i].mc_mg;
+                var fe = d[i].mc_fc;
+                var he = d[i].mc_ho;
+                var fr = d[i].mc_fr;
 
 
 
@@ -127,7 +128,55 @@ function getAll() {
 <div class="msgshowbox msgshowboxtitle" title="' + d[i].mc_ti + '" ><i class="fab fa-readme"></i> ' + n + '</div>\n\
 <div class="msgshowbox" ><i class="fas fa-calendar-alt"></i> ' + d[i].mc_fc + ' </div>\n\
 <div class="msgshowbox" ><i class="fas fa-clock"></i> ' + d[i].mc_ho + '</div>\n\
-<div class="msgshowbox" ><button onclick="settoshowbox(\'' + img + '\',  \'' + nb + '\', \'' + ti + '\' , \'' + cp + '\' , \'' + fe + '\' , \'' + he + '\' )" type="button" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button></div>\n\
+<div class="msgshowbox" ><button onclick="settoshowbox(\'' + img + '\',  \'' + nb + '\', \'' + ti + '\' , \'' + cp + '\' , \'' + fe + '\' , \'' + he + '\',\'' + fr + '\' )" type="button" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button></div>\n\
+</li>');
+            });
+        },
+        error: function () {
+
+        }
+    });
+
+
+
+}
+
+
+function getByUser() {
+    $.ajax({
+        url: "modelGeneral/mensageacXuser.php",
+        type: 'POST',
+        dataType: "json",
+        data: {bu: $("#userse").val()},
+        beforeSend: function () {
+
+        },
+        success: function (respuesta) {
+
+            var d = respuesta.resultados;
+            $("#MSGaLL").empty();
+            $.each(d, function (i, item) {
+
+                var str = d[i].mc_ti;
+
+                var n = str.substring(0, 20);
+
+                var img = d[i].us_im;
+                var nb = d[i].us_no + '  ' + d[i].us_ap1 + '  ' + d[i].us_ap2;
+                var ti = d[i].mc_ti;
+                var cp = d[i].mc_mg;
+                var fe = d[i].mc_fc;
+                var he = d[i].mc_ho;
+                var fr = d[i].mc_fr;
+
+
+
+                $("#MSGaLL").append('<li class="list-group-item">\n\
+<div class="msgshowbox" ><img title="' + d[i].us_no + '  ' + d[i].us_ap1 + '  ' + d[i].us_ap2 + ' - ' + d[i].us_ce + '" src="imgUser/' + d[i].us_im + '" width="30" height="30"/></div>\n\
+<div class="msgshowbox msgshowboxtitle" title="' + d[i].mc_ti + '" ><i class="fab fa-readme"></i> ' + n + '</div>\n\
+<div class="msgshowbox" ><i class="fas fa-calendar-alt"></i> ' + d[i].mc_fc + ' </div>\n\
+<div class="msgshowbox" ><i class="fas fa-clock"></i> ' + d[i].mc_ho + '</div>\n\
+<div class="msgshowbox" ><button onclick="settoshowbox(\'' + img + '\',  \'' + nb + '\', \'' + ti + '\' , \'' + cp + '\' , \'' + fe + '\' , \'' + he + '\',\'' + fr + '\' )" type="button" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button></div>\n\
 </li>');
             });
         },
@@ -150,6 +199,21 @@ $(document).ready(function () {
 
 
     $("#userSearchre").hide();
+
+    $("#userse").keyup(function () {
+
+
+
+        if ($("#userse").val() === "") {
+
+          getAll();
+          
+        } else {
+
+            getByUser();
+        }
+
+    });
 
     $("#userSearch").keyup(function () {
 

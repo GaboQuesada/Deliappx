@@ -26,6 +26,8 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <script src="controlerMaster/usuariosgetall.js"></script>
         <script src="controlerGeneral/usuarioEdit.js"></script>
         <script src="controlerMaster/usuarioLikemsg.js"></script>
+        <script src="controlerGeneral/notificacionesMensajes.js"></script>
+        <script src="controlerGeneral/showMensages.js"></script>
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
@@ -222,6 +224,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                         </ul> 
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab">
+                                                <input type="text" style=" height: 16px; width:270px; font-size: 12px; "  name="userse" id="userse"  placeholder="Busca por usuario mensajes enviados"/>
                                                 <ul id="MSGaLL" class="list-group list-group-flush ">
 
                                                 </ul>
@@ -234,6 +237,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 </div>
                             </div>
                             <div class="col-sm">
+                               
                                 <div class="boxshowmens">
 
                                     <div><div class="headboxmdg">PARA:</div>  &numsp;<img id="spmim" src="imgSys/user.png"width="30" height="30" style="display: inline-block;" > &numsp; <p id="spmnb" style="display: inline-block;"></p></div>

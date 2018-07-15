@@ -34,12 +34,56 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
             <form class="form-inline my-2 my-lg-0">
 
                 <img src="imgUser/<?php echo $_SESSION["img"]; ?>"width="30" height="30" class="my-2 my-sm-0" alt="">
-                 <a class="nav-item nav-link" href="Perfil.php"><i class="fas fa-cog"></i></a>
-                 <a class="nav-item nav-link" href="Perfil.php"><i class="fas fa-envelope"></i><span class="badge badge-primary">0</span></a>
+                <a class="nav-item nav-link" href="Perfil.php"><i class="fas fa-cog"></i></a>
+                <a id="boxshowmsit" class="nav-item nav-link" href="#"><i class="fas fa-envelope"></i><span id="msnoti" class="badge badge-primary"></span></a>
                 <a class="nav-item nav-link " href="modelGeneral/salir.php"><i class="fas fa-sign-out-alt"></i></a>
-               
+
             </form>
         </div>
     </div>
 
 </nav>
+
+
+<div id="contmsg" class="showmsgboxnav" style="position: fixed; left:65%; top: 7%; z-index: 4950; width: 280px;">
+
+    <ul id="msgshowboxnav" class="list-group list-group-flush " >
+
+    </ul>
+    <br> 
+    <p style="font-size: 12px; padding-left: 5px;"><i class="fas fa-envelope-open"></i> Ver todos<p>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" style="z-index: 8000" id="MsgModalShow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <center><i style="font-size: 50px;" class="fas fa-envelope-square"></i></center>
+                <hr>
+                
+                <br>
+                <p><center><strong>Asunto: </strong><span id="tims"> Buenas tardes </span></center></p>
+               
+            <p id="cpms" style="padding: 12px; border-style: solid; border-color: black; border-width: 1px;"> A partir del 23 de Abril estara disponible un nuevo modulo denominado aperturas , este servira para el trasnapaso</p>
+              
+                
+                
+                <p style="font-size: 10px;"><strong>fecha y hora del mensaje:</strong> <span id="fcms"> 23/15/2016 </span>  <span id="hrms"> 8:23:46</span></p>
+                <p>Desde: <strong><span> Master</span></strong></p>
+                <div style="display: inline-block">
+                    <img id="imms" class="rounded-circle" src="imgUser/adri.jpg"width="45" height="45" />
+                    &numsp;
+                    <span id="nbms"> Gabriel Quesada Sanchez</span>
+                </div>
+                <hr>
+                <center> <button type="button" id="mscl" data-dismiss="modal" class="btn btn-primary btn-sm">Listo</button></center>
+                <input type="hidden" id="msid" />
+            </div>
+
+        </div>
+    </div>
+</div>
