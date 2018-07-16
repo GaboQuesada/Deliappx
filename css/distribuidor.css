@@ -1,0 +1,11 @@
+
+
+.cuadroinsert{
+
+    border-radius: 35px 10px 55px 10px;
+    -moz-border-radius: 35px 10px 55px 10px;
+    -webkit-border-radius: 35px 10px 55px 10px;
+    border: 0px solid #000000;
+    
+    padding-bottom: 45px;
+}

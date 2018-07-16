@@ -7,7 +7,7 @@ $conn = $conexion->conect();
 try {
 
     $sourcePath = $_FILES['NewDistIm']['tmp_name']; // Storing source path of the file in a variable
-    $targetPath = "../distimg/" . $_FILES['NewDistIm']['name']; // Target path where file is to be stored
+    $targetPath = "../imgDist/" . $_FILES['NewDistIm']['name']; // Target path where file is to be stored
     move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
 
 

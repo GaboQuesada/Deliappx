@@ -5,7 +5,7 @@ $(document).ready(function (){
     $("#profile-tab").click(function () {
    
     $.ajax({
-        url: "model/distribuidorGetAll.php",
+        url: "modelMaster/distribuidorGetAll.php",
         type: 'POST',
         dataType: "json",
         beforeSend: function () {
@@ -21,7 +21,7 @@ $(document).ready(function (){
                 $("#UsuariosVerTable").append("\
 <tr>\n\
 <td>" + tam + "</td>\n\
-<td><img src='distimg/" + d[i].dis_lo + "' width='50' height='50'></td>\n\
+<td><img src='imgDist/" + d[i].dis_lo + "' width='50' height='50'></td>\n\
 <td>" + d[i].dis_no + "</td>\n\
 <td>" + d[i].us_no + " " + d[i].us_ap1 + " " + d[i].us_ap2 + "</td>\n\
 <td><button type='button' class='btn btn-info'>Ver agentes</button>\n\

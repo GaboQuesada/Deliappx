@@ -6,7 +6,7 @@ $(document).ready(function () {
     $("#modelusuariosDistribuidores").click(function () {
 
         $.ajax({
-            url: "model/usuariosgetAll.php",
+            url: "modelMaster/usuariosgetAll.php",
             type: 'POST',
             dataType: "json",
             beforeSend: function () {
@@ -24,7 +24,7 @@ $(document).ready(function () {
 <td>" + tam + "</td>\n\
 <td>" + d[i].us_no + " " + d[i].us_ap1 + " " + d[i].us_ap2 + "</td>\n\
 <td>" + d[i].us_ce + "</td>\n\
-<td><img src='userimg/" + d[i].us_im + "' width='50' height='50'></td>\n\
+<td><img src='imgUser/" + d[i].us_im + "' width='50' height='50'></td>\n\
 <td><button onclick='setoutmodal(\"" + d[i].us_ce + "\")' type='button' class='btn btn-warning'>Escoger</button></td>\n\</tr>");
                 });
             },
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
 function setoutmodal(pce) {
     $.ajax({
-        url: "model/usuariosgetByCe.php",
+        url: "modelMaster/usuariosgetByCe.php",
         type: 'POST',
         dataType: "json",
         data: {ce: pce},
@@ -54,7 +54,7 @@ function setoutmodal(pce) {
 
             $.each(d, function (i, item) {
 
-                var imgsrc = "userimg/" + d[i].us_im;
+                var imgsrc = "imgUser/" + d[i].us_im;
 
                 $("#disusids").val(d[i].us_id);
                 $("#disusrid").attr("src", imgsrc);

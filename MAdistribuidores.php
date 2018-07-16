@@ -15,6 +15,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/distribuidor.css">
         <link rel="stylesheet" href="lib/animation/css/animation.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -24,10 +25,10 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <script src="controlerGeneral/notificacionesMensajes.js"></script>
         <script src="controlerGeneral/showMensages.js"></script>
         <script src="controlerMaster/broadcasting.js"></script>
-        
-        <script src="controlerGeneral/usuariosgetModal.js"></script>
-        <script src="controlerGeneral/distribuidoraInsert.js"></script>
-        <script src="controlerGeneral/distribuidorgetall.js"></script>
+
+        <script src="controlerMaster/usuariosgetModal.js"></script>
+        <script src="controlerMaster/distribuidoraInsert.js"></script>
+        <script src="controlerMaster/distribuidorgetall.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
         <!-- Custom styles for this template -->
@@ -68,7 +69,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
             <div class="tab-content" id="myTabContent" style="margin: 2px">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <br>
-                    <div class="container">
+                    <div class="container cuadroinsert"  style="padding-top: 25px; padding-left: 20px; padding-right: 20px; background-color:white; margin-top: 10px; border-color: slategrey; border-style: solid; border-width:1px;">
                         <form id="frmNewDist" name="frmNewDist" enctype="multipart/form-data" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nombre del encargado</label>
@@ -84,10 +85,10 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                             <div class="container" id="showuserdiinfo">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <img id="disusrid" src="hkk" width="75" height="75" alt="..." class="rounded border border-primary">
+                                        <img id="disusrid" src="imgSys/user.png" width="75" height="75" alt="..." class="rounded border border-primary">
                                     </div>
                                     <div id="disusce"  class="col-sm row align-items-center">
-                                        114840791
+
                                     </div>
                                     <div class="col-sm">
 
@@ -98,16 +99,12 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 <label for="exampleInputEmail1">Nombre de fantasia del distribuidor</label>
                                 <input type="text" class="form-control" name="distnewname" id="distnewname" aria-describedby="emailHelp" placeholder="">     
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Logo del distribuidor</label>
-                                <div class="custom-file">
 
-                                    <input type="file" class="custom-file-input" name="NewDistIm" id="NewDistIm">
-                                    <label class="custom-file-label" for="inputGroupFile01">Escoge la imagen para el logo</label>
-                                </div>
+                            <label for="exampleInputPassword1">Imagen para el logo</label>
 
-                            </div>
 
+                            <input type="file" onchange="readURLModificaU(this);"   name="NewDistIm" id="NewDistIm">
+                            <img id="newusimgp" name="newusimgp" src="imgSys/imagen.png" width="85" height="85" alt="..." class="rounded border border-primary">
                             <div class="form-group">
 
                                 <br>
@@ -121,7 +118,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-                    <div style="padding-top: 25px; padding-left: 20px; padding-right: 20px">
+                    <div style="padding-top: 25px; padding-left: 20px; padding-right: 20px; background-color:white; margin-top: 10px; border-color: slategrey; border-style: solid; border-width:1px;">
                         <table class="table table-hover ">
                             <thead class="thead-dark">
                                 <tr>
@@ -150,7 +147,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Escoger Encargado</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
