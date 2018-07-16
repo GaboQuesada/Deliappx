@@ -28,6 +28,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <script src="controlerMaster/usuarioLikemsg.js"></script>
         <script src="controlerGeneral/notificacionesMensajes.js"></script>
         <script src="controlerGeneral/showMensages.js"></script>
+        <script src="controlerMaster/broadcasting.js"></script>
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
@@ -81,7 +82,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                         </div>
                         <div class="col-sm">
                             <div class="container contenedorform" >
-    
+
                                 <form id="frmNewUser" enctype="multipart/form-data" method="post">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Nombre</label>
@@ -155,7 +156,8 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+                    <br>
+                    <input class="form-control form-control-sm" type="text" placeholder="Buscar por nombre o cedula">
                     <div style="padding-top: 25px; padding-left: 20px; padding-right: 20px; background-color:white; margin-top: 10px; border-color: slategrey; border-style: solid; border-width:1px;">
                         <table class="table table-hover ">
                             <thead class="thead-dark">
@@ -184,7 +186,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                         <div class="row">
                             <div class="col-sm">
                                 <div style="height: 70px; width: 100%; margin-top: 20px;">
-                                    <button type="button" class="btn btn-dark btn-sm"><i class="fas fa-pen-square"></i> Escribir Mensage a todos </button>
+                                    <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#msgcol"><i class="fas fa-pen-square"></i> Escribir Mensage a todos </button>
                                 </div>
                                 <div>
                                     <div>
@@ -192,7 +194,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" id="userSearch" name="userSearch" placeholder="Buscar usuario" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" class="form-control" id="userSearch" name="userSearch" placeholder="Escribir mensaje a usuario especifico" aria-label="Username" aria-describedby="basic-addon1">
 
                                         </div>
 
@@ -214,7 +216,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home" aria-selected="true">Individuales</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile" aria-selected="false">Colectivos</a>
+                                                <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile" aria-selected="false">Colectivos</a>
                                             </li>
                                             <li class="nav-item">
 
@@ -229,7 +231,12 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
 
                                                 </ul>
                                             </div>
-                                            <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                                            <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">
+                                                
+                                                 <ul id="BroasdaLL" class="list-group list-group-flush ">
+
+                                                </ul>
+                                            </div>
 
                                         </div>
 
@@ -237,12 +244,12 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                 </div>
                             </div>
                             <div class="col-sm">
-                               
+
                                 <div class="boxshowmens">
 
                                     <div><div class="headboxmdg">PARA:</div>  &numsp;<img id="spmim" src="imgSys/user.png"width="30" height="30" style="display: inline-block;" > &numsp; <p id="spmnb" style="display: inline-block;"></p></div>
                                     <div><div class="headboxmdg">DESDE:</div>  &numsp;<img  src="imgSys/master.png" width="30" height="30" style="display: inline-block;" > &numsp; <p style="display: inline-block;">Master</p></div>
-                                   
+
                                     <div class="form-group">
                                         <label for="e">Titulo / Asunto:</label>
                                         <input type="text" class="form-control" id="swtitulo" >
@@ -257,7 +264,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                                         <div id="hrv">Hora de envio:</div>
                                         <div>Estado:</div>
                                         <div>Fecha de visualización:</div>
-                                        
+
 
 
                                     </div>
@@ -400,5 +407,42 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                     </div>
                 </div>
             </div>
-    </body>
-</html>
+
+
+
+            <!-- Mensageria colectiva -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="msgcol" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nuevo Mensaje general</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <div><div class="headboxmdg">DESDE:</div>  &numsp;<img  src="imgSys/master.png" width="30" height="30" style="display: inline-block;" > &numsp; <p style="display: inline-block;">Master</p></div>
+                                <div><div class="headboxmdg">DE:</div>  &numsp;<img id="rmim" src="imgUser/<?php echo $_SESSION["img"] ?>" width="30" height="30" style="display: inline-block;" > &numsp; <p id="rmnb" style="display: inline-block;"><?php echo $_SESSION["nb"] ?></p></div>
+                                <div class="form-group">
+                                    <label for="e">Titulo / Asunto:</label>
+                                    <input type="text" class="form-control" id="msjcti" >
+                                    <div class="form-group">
+                                        <label for="ex">Cuerpo del mensaje</label>
+                                        <textarea class="form-control" id="msjccp" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="msjccancel" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                                <button type="button" id="msjsend" class="btn btn-primary btn-sm">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </body>
+                </html>
