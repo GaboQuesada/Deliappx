@@ -1,10 +1,7 @@
 
 
-$(document).ready(function (){
-   
-    $("#profile-tab").click(function () {
-   
-    $.ajax({
+function  usuariosGetAll(){
+       $.ajax({
         url: "modelMaster/usuariosgetAll.php",
         type: 'POST',
         dataType: "json",
@@ -34,11 +31,21 @@ $(document).ready(function (){
         error: function () {
 
         }
-    });
-})
+    }); 
     
     
-})
+}
+
+
+$(document).ready(function (){
+   
+    $("#profile-tab").click(function () {
+   
+ usuariosGetAll();
+});
+    
+    
+});
 
 
 

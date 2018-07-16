@@ -29,6 +29,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <script src="controlerGeneral/notificacionesMensajes.js"></script>
         <script src="controlerGeneral/showMensages.js"></script>
         <script src="controlerMaster/broadcasting.js"></script>
+        <script src="controlerMaster/usuarioslike.js"></script>
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
@@ -157,7 +158,7 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <br>
-                    <input class="form-control form-control-sm" type="text" placeholder="Buscar por nombre o cedula">
+                    <input id="seuslike" name="seuslike" class="form-control form-control-sm" type="text" placeholder="Buscar por nombre o cedula">
                     <div style="padding-top: 25px; padding-left: 20px; padding-right: 20px; background-color:white; margin-top: 10px; border-color: slategrey; border-style: solid; border-width:1px;">
                         <table class="table table-hover ">
                             <thead class="thead-dark">
