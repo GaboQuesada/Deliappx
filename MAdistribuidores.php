@@ -176,6 +176,68 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
                 </div>
             </div>
 
+<!-- Modal para editar -->
+<div class="modal fade" id="editdis" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="frmNewDist" name="frmNewDist" enctype="multipart/form-data" method="post">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nombre del encargado</label>
+                                <div class="input-group mb-3">
+
+                                    <input type="text" class="form-control" name="disusno" id="disusno" placeholder="Encargado" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <input type="hidden" id="disusids"  name="disusids" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" id="modelusuariosDistribuidores" type="button" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search"></i> Buscar</button>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="container" id="showuserdiinfo">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <img id="disusrid" src="imgSys/user.png" width="75" height="75" alt="..." class="rounded border border-primary">
+                                    </div>
+                                    <div id="disusce"  class="col-sm row align-items-center">
+
+                                    </div>
+                                    <div class="col-sm">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nombre de fantasia del distribuidor</label>
+                                <input type="text" class="form-control" name="distnewname" id="distnewname" aria-describedby="emailHelp" placeholder="">     
+                            </div>
+
+                            <label for="exampleInputPassword1">Imagen para el logo</label>
+
+
+                            <input type="file" onchange="readURLModificaU(this);"   name="NewDistIm" id="NewDistIm">
+                            <img id="newusimgp" name="newusimgp" src="imgSys/imagen.png" width="85" height="85" alt="..." class="rounded border border-primary">
+                            <div class="form-group">
+
+                                <br>
+                                <button type="submit" id="BtnNewUser" name="BtnNewDist" class="btn btn-primary btn-lg btn-block">Agregar</button>
+
+                            </div>
+
+                        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
         </div>
     </body>

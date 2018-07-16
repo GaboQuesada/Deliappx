@@ -26,7 +26,7 @@ $(document).ready(function (){
 <td>" + d[i].us_no + " " + d[i].us_ap1 + " " + d[i].us_ap2 + "</td>\n\
 <td><button type='button' class='btn btn-info'>Ver agentes</button>\n\
 <button type='button' class='btn btn-info'>Ver Clientes</button>\n\
-<button type='button' class='btn btn-warning'>Editar</button></td></tr>");
+<button type='button' class='btn btn-warning' data-toggle='modal' data-target='#editdis'>Editar</button></td></tr>");
             });
         },
         error: function () {
