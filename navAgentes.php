@@ -1,7 +1,7 @@
 <?php
 @session_start();
 
-if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
+if (!empty($_SESSION['id'] && $_SESSION["ag"] == 1)) {
     
 } else {
     header("Location: index.php");
@@ -23,13 +23,10 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link anav "  href="lobby.php"><i class="fas fa-home"></i> Perfiles </a>
-                <a class="nav-item nav-link anav" href="MAmaster.php"><i class="fas fa-user"></i> Usuarios</a>
-                <a class="nav-item nav-link anav" href="MAdistribuidores.php"><i class="fas fa-industry"></i> Distribuidores</a>
-                <a class="nav-item nav-link anav" href="MAagentes.php"><i class="fas fa-address-card"></i> Agentes</a>
-                <a class="nav-item nav-link anav" href="#"><i class="fas fa-heart"></i> Clientes</a>
-                <a class="nav-item nav-link anav" href="#"><i class="fas fa-coins"></i> Pagos</a>
+                <a class="nav-item nav-link anav" href="AGMaster.php"><i class="fas fa-heart"></i> Agregar Cliente</a>
+                <a class="nav-item nav-link anav" href="AGMaster.php"><i class="fas fa-heart"></i> Clientes</a>
                 <a class="nav-item nav-link anav" href="#"><i class="fas fa-chart-bar"></i> Estadisticas</a>
-                <a class="nav-item nav-link anav" href="MAprecios.php"><i class="fas fa-calculator"></i> Precios</a>
+                <a class="nav-item nav-link anav" href="#"><i class="fas fa-calculator"></i> Calcular Precio</a>
             </div>
             <form class="form-inline my-2 my-lg-0">
 
@@ -64,14 +61,14 @@ if (!empty($_SESSION['id'] && $_SESSION["ma"] == 1)) {
             <div class="modal-body">
                 <center><i style="font-size: 50px;" class="fas fa-envelope-square"></i></center>
                 <hr>
-                
+
                 <br>
                 <p><center><strong>Asunto: </strong><span id="tims"> Buenas tardes </span></center></p>
-               
-            <p id="cpms" style="padding: 12px; border-style: solid; border-color: black; border-width: 1px;"> A partir del 23 de Abril estara disponible un nuevo modulo denominado aperturas , este servira para el trasnapaso</p>
-              
-                
-                
+
+                <p id="cpms" style="padding: 12px; border-style: solid; border-color: black; border-width: 1px;"> A partir del 23 de Abril estara disponible un nuevo modulo denominado aperturas , este servira para el trasnapaso</p>
+
+
+
                 <p style="font-size: 10px;"><strong>fecha y hora del mensaje:</strong> <span id="fcms"> 23/15/2016 </span>  <span id="hrms"> 8:23:46</span></p>
                 <p>Desde: <strong><span> Master</span></strong></p>
                 <div style="display: inline-block">
